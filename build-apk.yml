@@ -1,0 +1,33 @@
+name: Build Android APK
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: {}
+
+jobs:
+  build-android:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repositório
+        uses: actions/checkout@v4
+
+      # Build de DEBUG por padrão: não precisa de keystore, ótimo para
+      # testar rapidamente a cada push. Para gerar um APK assinado de
+      # release, veja as instruções no README ("Build de release").
+      - name: Build APK (Godot Android export)
+        id: build
+        uses: mlm-games/godot-build-action@v1
+        with:
+          EXPORT_PRESET_NAME: "Android arm64"
+          GODOT_VER: ""
+          DEBUG_MODE: "true"
+          EXPORT_DIR: builds
+          VERBOSE_IMPORT: "true"
+
+      - name: Upload APK como artifact do workflow
+        uses: actions/upload-artifact@v4
+        with:
+          name: round-table-chronicles-apk
+          path: ${{ steps.build.outputs.build }}
+          if-no-files-found: error
