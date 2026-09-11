@@ -1,0 +1,72 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/HUD.gd" id="1_hud"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_hud")
+
+[node name="Root" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TopBar" type="HBoxContainer" parent="Root"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 12.0
+offset_right = -16.0
+theme_override_constants/separation = 24
+
+[node name="HealthBar" type="ProgressBar" parent="Root/TopBar"]
+custom_minimum_size = Vector2(220, 24)
+max_value = 100.0
+value = 100.0
+
+[node name="CoinLabel" type="Label" parent="Root/TopBar"]
+text = "Moedas: 0"
+
+[node name="StageLabel" type="Label" parent="Root/TopBar"]
+text = ""
+
+[node name="Controls" type="HBoxContainer" parent="Root"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -100.0
+offset_right = -20.0
+offset_bottom = -20.0
+theme_override_constants/separation = 16
+
+[node name="BlockButton" type="Button" parent="Root/Controls"]
+custom_minimum_size = Vector2(80, 80)
+text = "Bloquear"
+
+[node name="SpecialButton" type="Button" parent="Root/Controls"]
+custom_minimum_size = Vector2(80, 80)
+text = "Especial"
+
+[node name="AttackButton" type="Button" parent="Root/Controls"]
+custom_minimum_size = Vector2(80, 80)
+text = "Atacar"
+
+[node name="MoveJoystickHint" type="Label" parent="Root"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -60.0
+offset_right = 260.0
+offset_bottom = -20.0
+text = "Setas/WASD no PC.
+Adicione um joystick virtual (ex: plugin
+'virtual joystick' da Asset Library) para
+controle por toque em produção."
+autowrap_mode = 2

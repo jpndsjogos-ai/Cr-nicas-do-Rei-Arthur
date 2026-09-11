@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/Forge.gd" id="1_forge"]
+
+[node name="Forge" type="Control"]
+script = ExtResource("1_forge")
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -160.0
+offset_right = 220.0
+offset_bottom = 160.0
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+theme_override_constants/separation = 12
+
+[node name="CoinLabel" type="Label" parent="Panel/VBox"]
+text = "Moedas disponíveis: 0"
+
+[node name="ArmorRow" type="HBoxContainer" parent="Panel/VBox"]
+theme_override_constants/separation = 12
+
+[node name="ArmorName" type="Label" parent="Panel/VBox/ArmorRow"]
+text = "Armadura atual: Roupas de Couro"
+
+[node name="ArmorCost" type="Label" parent="Panel/VBox/ArmorRow"]
+text = ""
+
+[node name="ArmorUpgradeButton" type="Button" parent="Panel/VBox/ArmorRow"]
+text = "Evoluir Armadura"
+
+[node name="WeaponRow" type="HBoxContainer" parent="Panel/VBox"]
+theme_override_constants/separation = 12
+
+[node name="WeaponName" type="Label" parent="Panel/VBox/WeaponRow"]
+text = "Arma atual: Espada Curta"
+
+[node name="WeaponCost" type="Label" parent="Panel/VBox/WeaponRow"]
+text = ""
+
+[node name="WeaponUpgradeButton" type="Button" parent="Panel/VBox/WeaponRow"]
+text = "Evoluir Arma"

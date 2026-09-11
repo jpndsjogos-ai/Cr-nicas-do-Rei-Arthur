@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/Boss.gd" id="1_boss"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_boss"]
+size = Vector2(44, 64)
+
+[node name="Boss" type="CharacterBody2D" groups=["enemy"]]
+script = ExtResource("1_boss")
+max_health = 150
+speed = 70.0
+attack_damage = 18
+coin_drop = 100
+
+[node name="BodySprite" type="ColorRect" parent="."]
+offset_left = -22.0
+offset_top = -44.0
+offset_right = 22.0
+offset_bottom = 20.0
+color = Color(0.25, 0.05, 0.3, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_boss")
+
+[node name="AttackTimer" type="Timer" parent="."]
+one_shot = true
